@@ -76,8 +76,41 @@ run_analysis <- function(){
  ## temp_extr <- extract_data[, tgravity_Acc_Mag_Std_m:=mean(`tGravityAccMag-std()-X`), by=list(subject_ID, activity_ID)]
   temp_extr <- extract_data[, tbody_Acc_Jerk_Mag_Mean_m:=mean(`tBodyAccJerkMag-mean()`), by=list(subject_ID, activity_ID)]
   temp_extr <- extract_data[, tbody_Acc_Jerk_Mag_Std_m:=mean(`tBodyAccJerkMag-std()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, tbody_Gyroscope_Mag_Mean_m:=mean(`tBodyGyroMag-mean()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, tbody_Gyroscope_Mag_Std_m:=mean(`tBodyGyroMag-std()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, tbody_Gyroscope_Jerk_Mag_Mean_m:=mean(`tBodyGyroJerkMag-mean()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, tbody_Gyroscope_Jerk_Mag_Std_m:=mean(`tBodyGyroJerkMag-std()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Mean_X_m:=mean(`fBodyAcc-mean()-X`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Mean_Y_m:=mean(`fBodyAcc-mean()-Y`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Mean_Z_m:=mean(`fBodyAcc-mean()-Z`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Std_X_m:=mean(`fBodyAcc-std()-X`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Std_Y_m:=mean(`fBodyAcc-std()-Y`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Std_Z_m:=mean(`fBodyAcc-std()-Z`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Jerk_Mean_X_m:=mean(`fBodyAccJerk-mean()-X`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Jerk_Mean_Y_m:=mean(`fBodyAccJerk-mean()-Y`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Jerk_Mean_Z_m:=mean(`fBodyAccJerk-mean()-Z`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Jerk_Std_X_m:=mean(`fBodyAccJerk-std()-X`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Jerk_Std_Y_m:=mean(`fBodyAccJerk-std()-Y`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Jerk_Std_Z_m:=mean(`fBodyAccJerk-std()-Z`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Gyroscope_Mean_X_m:=mean(`fBodyGyro-mean()-X`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Gyroscope__Mean_Y_m:=mean(`fBodyGyro-mean()-Y`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Gyroscope__Mean_Z_m:=mean(`fBodyGyro-mean()-Z`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Gyroscope__Std_X_m:=mean(`fBodyGyro-std()-X`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Gyroscope__Std_Y_m:=mean(`fBodyGyro-std()-Y`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Gyroscope__Std_Z_m:=mean(`fBodyGyro-std()-Z`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Mag_Mean_m:=mean(`fBodyAccMag-mean()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbody_Acc_Mag_Std_m:=mean(`fBodyAccMag-std()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbodybody_Acc_Jerk_Mag_Mean_m:=mean(`fBodyBodyAccJerkMag-mean()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbodybody_Acc_Jerk_Mag_Std_m:=mean(`fBodyBodyAccJerkMag-std()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbodybody_Gyroscope_Mag_Mean_m:=mean(`fBodyBodyGyroMag-mean()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbodybody_Gyroscope_Mag_Std_m:=mean(`fBodyBodyGyroMag-std()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbodybody_Gyroscope_Jerk_Mag_Mean_m:=mean(`fBodyBodyGyroJerkMag-mean()`), by=list(subject_ID, activity_ID)]
+  temp_extr <- extract_data[, fbodybody_Gyroscope_Jerk_Mag_std_m:=mean(`fBodyBodyGyroJerkMag-std()`), by=list(subject_ID, activity_ID)]
   
- 
-  tidy_data <- select(temp_extr, c(1, 3, 90:120))
+   
+  tidy_data <- select(temp_extr, c(1, 3, 90:152))
+  dir <- getwd()
+  tidy_data_file <- write.table(tidy_data, file = dir/tidy_data.txt, sep=" ", row.names = FALSE)
+  
  
   }
